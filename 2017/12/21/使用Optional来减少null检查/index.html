@@ -52,7 +52,7 @@
 <meta property="og:site_name" content="Dylan">
 <meta property="og:description" content="由来平常我们使用null检查在项目中简直太常见了，从数据库中查询到的数据可能不存在返回null，service中处理中发现不存在返回一个null，在互相调用的时候每次都需要做(if obj != null)的判断，散落在程序中很难看。更难看的是当你遗漏了一个空指针判断，程序就会无情的给你抛出一个NPE让你知道谁才是老大。 假设我们有一个用户类User，用户可以有收货地址类Addr，收货地址中肯定会">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-22T05:13:30.709Z">
+<meta property="og:updated_time" content="2017-12-22T05:39:32.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Optional来减少null检查">
 <meta name="twitter:description" content="由来平常我们使用null检查在项目中简直太常见了，从数据库中查询到的数据可能不存在返回null，service中处理中发现不存在返回一个null，在互相调用的时候每次都需要做(if obj != null)的判断，散落在程序中很难看。更难看的是当你遗漏了一个空指针判断，程序就会无情的给你抛出一个NPE让你知道谁才是老大。 假设我们有一个用户类User，用户可以有收货地址类Addr，收货地址中肯定会">
@@ -397,21 +397,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
@@ -475,8 +475,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017
+  &copy; &nbsp;  2017 - 
+  <span itemprop="copyrightYear">2018
   </span>
   <span class="with-love">
     <i class="icon-next-heart"></i>

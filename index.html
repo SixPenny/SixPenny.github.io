@@ -214,7 +214,7 @@
     <span id="layer0Go" class="drag">j</span>
     <span id="layer1Go" class="drag">o</span>
     <span id="layer2Go" class="drag">y</span>
-    <span id="layer3Go" class="drag">?</span>
+    <span id="layer3Go" class="drag">~</span>
     <span id="layer4Go" class="drag">y</span>
     <span id="layer5Go" class="drag">o</span>
     <span id="layer6Go" class="drag">u</span>
@@ -3435,8 +3435,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/Liquibase介绍与使用/" itemprop="url">
-                Liquibase介绍与使用
+              <a class="post-title-link" href="/2018/01/02/对stack的定势思维/" itemprop="url">
+                对stack的定势思维
               </a>
             
           
@@ -3446,19 +3446,34 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2017-12-21T18:27:44+08:00" content="2017-12-21">
-            2017-12-21
+          <time itemprop="dateCreated" datetime="2018-01-02T18:58:11+08:00" content="2018-01-02">
+            2018-01-02
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/思考/" itemprop="url" rel="index">
+                  <span itemprop="name">思考</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/Liquibase介绍与使用/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Liquibase介绍与使用/" itemprop="commentsCount"></span>
+            <a href="/2018/01/02/对stack的定势思维/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/02/对stack的定势思维/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3473,9 +3488,19 @@
 
       
         
-          <h2 id="Liquibase-简介"><a href="#Liquibase-简介" class="headerlink" title="Liquibase 简介"></a>Liquibase 简介</h2><p>liquibase在其<a href="http://www.liquibase.org/" title="liquibase官网" target="_blank" rel="noopener">官网首页</a>中有一个很明确的定位，<br>那就是Source Control For Your Database，Liquibase记录你的数据库变更，<br>可以在你你迁移时迅速的生成一个与原数据库一致的库出来。还可以与其余数据库做diff，支持多人开发等功能。</p>
+          <p>今天在codewar上做了这样一道题</p>
+<blockquote>
+<p>In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct syntax.</p>
+<p>Your job in this kata will be to make a program that checks a string for correct grouping. For instance, the following groups are done correctly:</p>
+<p>({})<br>[<a href=""></a>]<br>[{()}]<br>The next are done incorrectly:</p>
+<p>{(})<br>([]<br>[])</p>
+<p>A correct string cannot close groups in the wrong order, open a group but fail to close it, or close a group before it is opened.</p>
+<p>Your function will take an input string that may contain any of the symbols (), {} or [] to create groups.</p>
+<p>It should return True if the string is empty or otherwise grouped correctly, or False if it is grouped incorrectly.</p>
+</blockquote>
+<p>在我脑海中蹦出来的第一个想法就是使用栈来保存弹出，来判断括号是否匹配</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/Liquibase介绍与使用/#more" rel="contents">
+            <a class="btn" href="/2018/01/02/对stack的定势思维/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3508,8 +3533,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/Ansible模块/" itemprop="url">
-                Ansible模块
+              <a class="post-title-link" href="/2017/12/21/Ansible简介及思想/" itemprop="url">
+                Ansible简介及思想
               </a>
             
           
@@ -3530,8 +3555,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/Ansible模块/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible模块/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/Ansible简介及思想/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible简介及思想/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3546,10 +3571,10 @@
 
       
         
-          <p>尽量使用ansible的模块，我们平常的shell命令不具备幂等性，譬如说创建一个文件夹，如果文件夹存在的话，命令执行不成功ansible就直接报错终止了。</p>
-<p>使用ansible的模块可以指定系统的状态，在ansible执行完后只要系统达到指定的状态就可以了，文件夹如果存在就不做任何操作，不存在就创建，可以多次运行。</p>
+          <h2 id="ansible是什么"><a href="#ansible是什么" class="headerlink" title="ansible是什么"></a>ansible是什么</h2><p>如果我们Google一下ansible，第一条出来的就是ansible的官网，它的title是“Ansible is Simple IT Automation”，从这里我们就能了解了ansible的目标：自动化。什么的自动化呢，其实是部署自动化(infrastructure as code)，将你原先一步一步使用命令转变为通过一系列的<code>状态检查</code>来安装一个软件，可以实现批量部署，一键部署。</p>
+<h2 id="为什么用ansible"><a href="#为什么用ansible" class="headerlink" title="为什么用ansible"></a>为什么用ansible</h2><p>ansible有很多的优势，我觉得最重要的就是简单。ansible无需你安装客户端，只需要在一台机器上安装好ansible，配置好ssh，就可以使用了。语法也很简单，使用一系列的task来指定要做的任务，yaml格式提供了很好的缩进，一目了然。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/Ansible模块/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/Ansible简介及思想/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3805,8 +3830,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/Ansible简介及思想/" itemprop="url">
-                Ansible简介及思想
+              <a class="post-title-link" href="/2017/12/21/Spring Boot开启https/" itemprop="url">
+                spring boot 配置https
               </a>
             
           
@@ -3827,8 +3852,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/Ansible简介及思想/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible简介及思想/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/Spring Boot开启https/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Spring Boot开启https/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3843,10 +3868,15 @@
 
       
         
-          <h2 id="ansible是什么"><a href="#ansible是什么" class="headerlink" title="ansible是什么"></a>ansible是什么</h2><p>如果我们Google一下ansible，第一条出来的就是ansible的官网，它的title是“Ansible is Simple IT Automation”，从这里我们就能了解了ansible的目标：自动化。什么的自动化呢，其实是部署自动化(infrastructure as code)，将你原先一步一步使用命令转变为通过一系列的<code>状态检查</code>来安装一个软件，可以实现批量部署，一键部署。</p>
-<h2 id="为什么用ansible"><a href="#为什么用ansible" class="headerlink" title="为什么用ansible"></a>为什么用ansible</h2><p>ansible有很多的优势，我觉得最重要的就是简单。ansible无需你安装客户端，只需要在一台机器上安装好ansible，配置好ssh，就可以使用了。语法也很简单，使用一系列的task来指定要做的任务，yaml格式提供了很好的缩进，一目了然。</p>
+          <span itemprop="articleBody">
+            
+            1：使用keytool生成 keystore  keytool -keystore mykey.jks -genkey -alias tomcat -keyalg RSA
+  记住密钥库口令和密钥口令，后面配置需要使用，这里我直接使用Tomcat
+2:在application.properties 
+            ...
+          </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/Ansible简介及思想/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/Spring Boot开启https/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3879,8 +3909,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/25岁每天做什么对5年之后的你有益/" itemprop="url">
-                25岁每天做什么对5年之后的你有益？
+              <a class="post-title-link" href="/2017/12/21/Ansible模块/" itemprop="url">
+                Ansible模块
               </a>
             
           
@@ -3901,8 +3931,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/25岁每天做什么对5年之后的你有益/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/25岁每天做什么对5年之后的你有益/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/Ansible模块/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible模块/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3917,17 +3947,10 @@
 
       
         
-          <span itemprop="articleBody">
-            
-            
-每天花5分钟跟爸爸妈妈视频，随便聊聊每天的事情，工作，天气，吃的如何，同事同学的八卦。
-每天花至少30分钟锻炼，哪怕只是下楼遛弯。每天专注自己的工作和学习，解决问题，以热情拥抱工作和学习。
-每天收拾好自己的头发，换一身干净衣服再出门。每天认真洗脸，照顾好自己的皮肤。
-学会做饭，不一定每天做，但是至
-            ...
-          </span>
+          <p>尽量使用ansible的模块，我们平常的shell命令不具备幂等性，譬如说创建一个文件夹，如果文件夹存在的话，命令执行不成功ansible就直接报错终止了。</p>
+<p>使用ansible的模块可以指定系统的状态，在ansible执行完后只要系统达到指定的状态就可以了，文件夹如果存在就不做任何操作，不存在就创建，可以多次运行。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/25岁每天做什么对5年之后的你有益/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/Ansible模块/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3985,21 +4008,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
@@ -4063,8 +4086,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2017
+  &copy; &nbsp;  2017 - 
+  <span itemprop="copyrightYear">2018
   </span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
