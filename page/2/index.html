@@ -3435,8 +3435,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/卓有成效的管理者/" itemprop="url">
-                卓有成效的管理者
+              <a class="post-title-link" href="/2017/12/21/Ansible模块/" itemprop="url">
+                Ansible模块
               </a>
             
           
@@ -3457,8 +3457,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/卓有成效的管理者/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/卓有成效的管理者/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/Ansible模块/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible模块/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3473,11 +3473,10 @@
 
       
         
-          <p>Q:<br>    1:何为有效性？<br>    2：如何做到有效性？<br>    3：何为管理者，如何做一个有效的管理者？<br>    4：经过何种训练，一个人才能具备有效性</p>
-<p>作为一个有效的管理者，必须在思想上养成如下的习惯：<br>    1：知道如何利用自己的时间<br>    2：注意使自己的努力产生必要的成果，而不是工作本身，重视对外界的贡献<br>    3：把工作建立在优势上，自己的，上下级的优势<br>    4：精力集中于少数领域<br>    5：善于做出有效决策</p>
-<p>才华本身并不等于成就。</p>
+          <p>尽量使用ansible的模块，我们平常的shell命令不具备幂等性，譬如说创建一个文件夹，如果文件夹存在的话，命令执行不成功ansible就直接报错终止了。</p>
+<p>使用ansible的模块可以指定系统的状态，在ansible执行完后只要系统达到指定的状态就可以了，文件夹如果存在就不做任何操作，不存在就创建，可以多次运行。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/卓有成效的管理者/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/Ansible模块/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3510,8 +3509,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/Liquibase介绍与使用/" itemprop="url">
-                Liquibase介绍与使用
+              <a class="post-title-link" href="/2017/12/21/单元测试思考/" itemprop="url">
+                单元测试思考
               </a>
             
           
@@ -3532,8 +3531,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/Liquibase介绍与使用/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Liquibase介绍与使用/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/单元测试思考/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/单元测试思考/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3548,9 +3547,84 @@
 
       
         
-          <h2 id="Liquibase-简介"><a href="#Liquibase-简介" class="headerlink" title="Liquibase 简介"></a>Liquibase 简介</h2><p>liquibase在其<a href="http://www.liquibase.org/" title="liquibase官网" target="_blank" rel="noopener">官网首页</a>中有一个很明确的定位，<br>那就是Source Control For Your Database，Liquibase记录你的数据库变更，<br>可以在你你迁移时迅速的生成一个与原数据库一致的库出来。还可以与其余数据库做diff，支持多人开发等功能。</p>
+          <p>刚开始工作的时候对单元测试是一种神秘主义，觉得测试很好，但不知道如何开始。团队里也没人去写单元测试，偶尔有个也是写的集成测试，用Spring的test，将所有依赖注入进来，然后<code>System.out.println</code>输出肉眼观测数据是否符合要求，这让我对测试有向往，但是又嫌麻烦，毕竟这样测试写了很多的代码，但是速度上、准确性上都达不到要求。</p>
+<p>就这样一直手动测试了很长时间，也听多了单元测试，自动化测试等等名词，却一直不得其门而入。买过一本单元测试相关的书，看完了，但就是没有开窍。去开发者头条上搜相关测试主题，讲的都是一些思想上的，对我目前的疑惑却没有什么帮助，毕竟我还没有入门。</p>
+<p>后来忘了在哪又看到了单元测试的定义：是对一个模块，一个类或一个函数的正确性做检测的测试工作。突然有点明白了如何来写单元测试，以往一直迷惑这么多依赖该怎么办，覆盖不到全部执行路径怎么办，看到<code>一个函数</code>这四个字我找到了答案：一个函数依赖不会很多，可以使用mock来解决；一个函数的全部执行路径也就那么多，每种情况都考虑到也不会很多；前面说的使用<code>System.out.println</code>肉眼测试，也因为函数只有一个返回值而可以使用<code>Assert</code>类来断言来判断正确性。关键就在于单元，一开始把目光着眼在一个服务类上，依赖十几个服务，几十个外部函数调用，使我望而却步，而把焦点放到函数上，一来可以避免自己写超大的函数，二来依赖少，写单元测试的阻力变小了。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/Liquibase介绍与使用/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/单元测试思考/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2017/12/21/CompletableFuture的使用/" itemprop="url">
+                CompeletableFuture的使用
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2017-12-21T18:27:44+08:00" content="2017-12-21">
+            2017-12-21
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2017/12/21/CompletableFuture的使用/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/CompletableFuture的使用/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>我们就使用Java8 in action里面的商店的例子来说明。<br>我们写了一个应用，这个应用需要通过互联网接口从其他的服务商那里取得价格，<br>由于会有好多个服务商，因此我们先将操作封装到Shop类中。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/12/21/CompletableFuture的使用/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3665,6 +3739,81 @@
           
           
             
+              <a class="post-title-link" href="/2017/12/21/卓有成效的管理者/" itemprop="url">
+                卓有成效的管理者
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2017-12-21T18:27:44+08:00" content="2017-12-21">
+            2017-12-21
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2017/12/21/卓有成效的管理者/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/卓有成效的管理者/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>Q:<br>    1:何为有效性？<br>    2：如何做到有效性？<br>    3：何为管理者，如何做一个有效的管理者？<br>    4：经过何种训练，一个人才能具备有效性</p>
+<p>作为一个有效的管理者，必须在思想上养成如下的习惯：<br>    1：知道如何利用自己的时间<br>    2：注意使自己的努力产生必要的成果，而不是工作本身，重视对外界的贡献<br>    3：把工作建立在优势上，自己的，上下级的优势<br>    4：精力集中于少数领域<br>    5：善于做出有效决策</p>
+<p>才华本身并不等于成就。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/12/21/卓有成效的管理者/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2017/12/21/25岁每天做什么对5年之后的你有益/" itemprop="url">
                 25岁每天做什么对5年之后的你有益？
               </a>
@@ -3714,81 +3863,6 @@
           </span>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/12/21/25岁每天做什么对5年之后的你有益/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2017/12/21/单元测试思考/" itemprop="url">
-                单元测试思考
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2017-12-21T18:27:44+08:00" content="2017-12-21">
-            2017-12-21
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2017/12/21/单元测试思考/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/单元测试思考/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>刚开始工作的时候对单元测试是一种神秘主义，觉得测试很好，但不知道如何开始。团队里也没人去写单元测试，偶尔有个也是写的集成测试，用Spring的test，将所有依赖注入进来，然后<code>System.out.println</code>输出肉眼观测数据是否符合要求，这让我对测试有向往，但是又嫌麻烦，毕竟这样测试写了很多的代码，但是速度上、准确性上都达不到要求。</p>
-<p>就这样一直手动测试了很长时间，也听多了单元测试，自动化测试等等名词，却一直不得其门而入。买过一本单元测试相关的书，看完了，但就是没有开窍。去开发者头条上搜相关测试主题，讲的都是一些思想上的，对我目前的疑惑却没有什么帮助，毕竟我还没有入门。</p>
-<p>后来忘了在哪又看到了单元测试的定义：是对一个模块，一个类或一个函数的正确性做检测的测试工作。突然有点明白了如何来写单元测试，以往一直迷惑这么多依赖该怎么办，覆盖不到全部执行路径怎么办，看到<code>一个函数</code>这四个字我找到了答案：一个函数依赖不会很多，可以使用mock来解决；一个函数的全部执行路径也就那么多，每种情况都考虑到也不会很多；前面说的使用<code>System.out.println</code>肉眼测试，也因为函数只有一个返回值而可以使用<code>Assert</code>类来断言来判断正确性。关键就在于单元，一开始把目光着眼在一个服务类上，依赖十几个服务，几十个外部函数调用，使我望而却步，而把焦点放到函数上，一来可以避免自己写超大的函数，二来依赖少，写单元测试的阻力变小了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/单元测试思考/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3920,21 +3994,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

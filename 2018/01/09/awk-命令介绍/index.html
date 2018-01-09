@@ -33,7 +33,7 @@
 
 
 
-  <meta name="keywords" content="stack,定势思维," />
+  <meta name="keywords" content="Linux,awk," />
 
 
 
@@ -44,18 +44,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
-<meta name="keywords" content="stack,定势思维">
+<meta name="description" content="awk是什么awk是一种处理文本文件的语言。是的，这是一门编程语言。是由Alfred Aho, Peter Weinberger, 和 Brian Kernighan三位创造的，语言名称取自三位姓氏的首字母。目前我们使用的一般是gawk，是awk的GNU版本。 awk模式awk是由一系列的模式-动作对组成的 1pattern &amp;#123; action &amp;#125;">
+<meta name="keywords" content="Linux,awk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对stack的定势思维">
-<meta property="og:url" content="http://sixpenny.github.io/2018/01/02/对stack的定势思维/index.html">
+<meta property="og:title" content="awk 命令介绍">
+<meta property="og:url" content="http://sixpenny.github.io/2018/01/09/awk-命令介绍/index.html">
 <meta property="og:site_name" content="Dylan">
-<meta property="og:description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
+<meta property="og:description" content="awk是什么awk是一种处理文本文件的语言。是的，这是一门编程语言。是由Alfred Aho, Peter Weinberger, 和 Brian Kernighan三位创造的，语言名称取自三位姓氏的首字母。目前我们使用的一般是gawk，是awk的GNU版本。 awk模式awk是由一系列的模式-动作对组成的 1pattern &amp;#123; action &amp;#125;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-02T11:09:42.948Z">
+<meta property="og:updated_time" content="2018-01-09T13:09:09.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对stack的定势思维">
-<meta name="twitter:description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
+<meta name="twitter:title" content="awk 命令介绍">
+<meta name="twitter:description" content="awk是什么awk是一种处理文本文件的语言。是的，这是一门编程语言。是由Alfred Aho, Peter Weinberger, 和 Brian Kernighan三位创造的，语言名称取自三位姓氏的首字母。目前我们使用的一般是gawk，是awk的GNU版本。 awk模式awk是由一系列的模式-动作对组成的 1pattern &amp;#123; action &amp;#125;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +65,7 @@
   };
 </script>
 
-  <title> 对stack的定势思维 | Dylan </title>
+  <title> awk 命令介绍 | Dylan </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -355,7 +355,7 @@
           
           
             
-              对stack的定势思维
+              awk 命令介绍
             
           
         </h1>
@@ -364,8 +364,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-01-02T18:58:11+08:00" content="2018-01-02">
-            2018-01-02
+          <time itemprop="dateCreated" datetime="2018-01-09T18:17:16+08:00" content="2018-01-09">
+            2018-01-09
           </time>
         </span>
 
@@ -374,8 +374,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/思考/" itemprop="url" rel="index">
-                  <span itemprop="name">思考</span>
+                <a href="/categories/Linux/" itemprop="url" rel="index">
+                  <span itemprop="name">Linux</span>
                 </a>
               </span>
 
@@ -390,8 +390,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2018/01/02/对stack的定势思维/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/02/对stack的定势思维/" itemprop="commentsCount"></span>
+            <a href="/2018/01/09/awk-命令介绍/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/09/awk-命令介绍/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -405,24 +405,134 @@
       
 
       
-        <span itemprop="articleBody"><p>今天在codewar上做了这样一道题</p>
-<blockquote>
-<p>In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct syntax.</p>
-<p>Your job in this kata will be to make a program that checks a string for correct grouping. For instance, the following groups are done correctly:</p>
-<p>({})<br>[<a href=""></a>]<br>[{()}]<br>The next are done incorrectly:</p>
-<p>{(})<br>([]<br>[])</p>
-<p>A correct string cannot close groups in the wrong order, open a group but fail to close it, or close a group before it is opened.</p>
-<p>Your function will take an input string that may contain any of the symbols (), {} or [] to create groups.</p>
-<p>It should return True if the string is empty or otherwise grouped correctly, or False if it is grouped incorrectly.</p>
-</blockquote>
-<p>在我脑海中蹦出来的第一个想法就是使用栈来保存弹出，来判断括号是否匹配</p>
+        <span itemprop="articleBody"><h2 id="awk是什么"><a href="#awk是什么" class="headerlink" title="awk是什么"></a>awk是什么</h2><p>awk是一种处理文本文件的语言。是的，这是一门编程语言。是由Alfred Aho, Peter Weinberger, 和 Brian Kernighan三位创造的，语言名称取自三位姓氏的首字母。目前我们使用的一般是gawk，是awk的GNU版本。</p>
+<h2 id="awk模式"><a href="#awk模式" class="headerlink" title="awk模式"></a>awk模式</h2><p>awk是由一系列的模式-动作对组成的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pattern &#123; action &#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>我的程序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Groups</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String left = <span class="string">"&#123;[("</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String right = <span class="string">"&#125;])"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">groupCheck</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (left.contains(String.valueOf(s.charAt(i)))) &#123;</span><br><span class="line">                stack.push(s.charAt(i));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!stack.empty()) &#123;</span><br><span class="line">                Character c = stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (right.indexOf(s.charAt(i)) != left.indexOf(c)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.empty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myTests</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(Groups.groupCheck(<span class="string">"()"</span>), <span class="keyword">true</span>);</span><br><span class="line">        assertEquals(Groups.groupCheck(<span class="string">"(&#123;"</span>), <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>边写边想，写的比较随意。<br>提交之后发现了一个简单至极的方案，完全不需要用栈来实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Groups</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">groupCheck</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      len = s.length();</span><br><span class="line">      s = s.replace(<span class="string">"()"</span>, <span class="string">""</span>);</span><br><span class="line">      s = s.replace(<span class="string">"&#123;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">      s = s.replace(<span class="string">"[]"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">while</span> (len != s.length());</span><br><span class="line">    <span class="keyword">return</span> s.length() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我看到之后想简直太厉害了，几行代码就实现了，还没有那么复杂的判断，关键是纯String操作。<br>优雅！</p>
-<p>我们的头脑遇到问题时会搜索一下有没有现成的解决方案，这在一定程度上减少了我们的脑力浪费，<br>但也有可能让我们丧失了创新的可能。遇事何不先问下自己<code>还有其他的解决方案么？</code></p>
+<p>其中pattern是awk在数据中查找的内容格式，action是在查找到之后执行的一系列命令。</p>
+<p>awk以行为单位进行处理，默认使用空格作为分隔符分割行，分割出来的域可以使用\$1,\$2等来使用，\$0代表整行的内容</p>
+<p>pattern我们常用的有<code>BEGIN</code>与<code>END</code>,分别表示在读取所有记录的之前和之后</p>
+<h2 id="awk-的pattern"><a href="#awk-的pattern" class="headerlink" title="awk 的pattern"></a>awk 的pattern</h2><p>任意的awk表达式都是有效的awk模式，我们在这列举几个常用的。</p>
+<table>
+<thead>
+<tr>
+<th>pattern</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEGIN</td>
+<td>在读取所有记录之前执行，只执行一次</td>
+</tr>
+<tr>
+<td>/regexp/</td>
+<td>在一行中匹配正则表达式</td>
+</tr>
+<tr>
+<td>END</td>
+<td>在读取完所有记录后执行，只执行一次</td>
+</tr>
+<tr>
+<td>$1 == “root”</td>
+<td>判断某个域是否等于某值</td>
+</tr>
+<tr>
+<td>$1 ~ /regexp/</td>
+<td>完整正则写法，不带~时匹配整行</td>
+</tr>
+<tr>
+<td>$1 == “root” &#124; &#124;  $1 == “lee”</td>
+<td>或运算和与运算(&amp;&amp;)</td>
+</tr>
+<tr>
+<td>!/regexp/</td>
+<td>非运算，完整的正则将(~)替换为(!~)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="awk的action"><a href="#awk的action" class="headerlink" title="awk的action"></a>awk的action</h2><p>action其实就是我们要执行的语句，风格继承自C语言，其中也混杂了一些Linux上的概念，我们可以很快的上手</p>
+<p>下面列举几个比较常用的</p>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print $1</td>
+<td>打印到屏幕</td>
+</tr>
+<tr>
+<td>printf(“first field is %s”, $1)</td>
+<td>c语言风格的打印函数</td>
+</tr>
+<tr>
+<td>print func(args)</td>
+<td>调用函数</td>
+</tr>
+</tbody>
+</table>
+<p>基本我们使用的就是这两个，action中也可以定义变量，标准与c语言一致<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名可以是语言关键字外的，只包含大小写拉丁字母，数字和下划线（“_”）的任意字。而操作符“+ - * /”则分别代表加，减，乘，除。简单的将两个变量（或字符串常量）放在一起，则会将二者串接为一个字符串。若二者间至少有一个是常量，则中间可以不加空格；但若二者均为变量，中间必须包括空格。字符串常量是以双引号（&quot;&quot;）分隔的。另外，注释是以“#”开头的。</span><br></pre></td></tr></table></figure></p>
+<p>譬如统计文件行数<code>awk &#39;BEGIN {count=0} {count++} END {print count}&#39; file</code><br>多条语句写在一行上我们需要使用分号来隔开，如果只有一条语句，分号并不是必须的。<br>譬如输出两行语句<code>awk &#39;BEGIN {print &quot;Hello&quot;; print &quot;World&quot;}&#39;</code></p>
+<p>awk可以自定义函数，可以使用循环，可以说是图灵完备的，平常我们也不会用它来处理太复杂的逻辑，大家有兴趣的可以看看。</p>
+<h2 id="awk内置变量"><a href="#awk内置变量" class="headerlink" title="awk内置变量"></a>awk内置变量</h2><p>awk内部保存了很多有用的状态变量，我们可以随时拿来使用，像上面举的文件行数的例子，awk已经给我们准备好了</p>
+<table>
+<thead>
+<tr>
+<th>内置变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NR</td>
+<td>已读取记录的条数(number of input records)</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>当前记录中field的个数 (number of fields in an input record) 最后一个域可以以$NF的方式引用</td>
+</tr>
+<tr>
+<td>FILENAME</td>
+<td>当然输入文件的文件名</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>域分隔符 (field-separator),默认空格</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>行分隔符(record-separator) 默认是\n</td>
+</tr>
+<tr>
+<td>OFS</td>
+<td>输出域分隔符(output field separator),默认空格</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>输出记录分隔符(output record separator),默认\n</td>
+</tr>
+<tr>
+<td>OFMT</td>
+<td>输出数字格式(Format for numeric output)其默认值为”%.6g”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="awk-常用举例"><a href="#awk-常用举例" class="headerlink" title="awk 常用举例"></a>awk 常用举例</h2><p>Hello world </p>
+<blockquote>
+<p>awk ‘BEGIN {print “Hello world”}’</p>
+</blockquote>
+<p>行数，单词数，字符数(wc功能)</p>
+<blockquote>
+<p>awk ‘{w += NF; c += length($0) + 1} END {print NR, w, c}’</p>
+</blockquote>
+<p>输出奇数行</p>
+<blockquote>
+<p>awk ‘NR % 2 == 1 {print NR, $0}’</p>
+</blockquote>
 </span>
       
     </div>
@@ -431,9 +541,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/stack/" rel="tag">#stack</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
-            <a href="/tags/定势思维/" rel="tag">#定势思维</a>
+            <a href="/tags/awk/" rel="tag">#awk</a>
           
         </div>
       
@@ -442,13 +552,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/09/awk-命令介绍/" rel="prev">awk 命令介绍</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/21/Ansible简介及思想/" rel="next">Ansible简介及思想</a>
+              <a href="/2018/01/02/对stack的定势思维/" rel="next">对stack的定势思维</a>
             
           </div>
         </div>
@@ -604,7 +712,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#awk是什么"><span class="nav-number">1.</span> <span class="nav-text">awk是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk模式"><span class="nav-number">2.</span> <span class="nav-text">awk模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-的pattern"><span class="nav-number">3.</span> <span class="nav-text">awk 的pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk的action"><span class="nav-number">4.</span> <span class="nav-text">awk的action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk内置变量"><span class="nav-number">5.</span> <span class="nav-text">awk内置变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-常用举例"><span class="nav-number">6.</span> <span class="nav-text">awk 常用举例</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -667,9 +775,9 @@
 
   <script type="text/javascript">
     var disqus_shortname = 'xxx';
-    var disqus_identifier = '2018/01/02/对stack的定势思维/';
-    var disqus_title = '对stack的定势思维';
-    var disqus_url = 'http://sixpenny.github.io/2018/01/02/对stack的定势思维/';
+    var disqus_identifier = '2018/01/09/awk-命令介绍/';
+    var disqus_title = 'awk 命令介绍';
+    var disqus_url = 'http://sixpenny.github.io/2018/01/09/awk-命令介绍/';
 
     function run_disqus_script(disqus_script){
       var dsq = document.createElement('script');
