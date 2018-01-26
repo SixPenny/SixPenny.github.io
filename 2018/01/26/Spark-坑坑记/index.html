@@ -33,7 +33,7 @@
 
 
 
-  <meta name="keywords" content="stack,定势思维," />
+  <meta name="keywords" content="spark,踩坑," />
 
 
 
@@ -44,18 +44,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
-<meta name="keywords" content="stack,定势思维">
+<meta name="description" content="背景​    公司里想做一个分析的业务，数据全都在MySQL里，就想着把数据导入到Kudu中后再做进一步的分析。由于在导数据过中可能会需要etl，而且数据的实时性要求并没有很高，对比了一下spark跟storm觉得spark的微批处理的思想很适合这种情况，于是就愉快的决定了。 上手​    我个人比较学院派，就是学习一个东西喜欢找书看。书里的体系是比较好的，从产生背景、基础知识到进阶知识都会有涉及">
+<meta name="keywords" content="spark,踩坑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对stack的定势思维">
-<meta property="og:url" content="http://sixpenny.github.io/2018/01/02/对stack的定势思维/index.html">
+<meta property="og:title" content="Spark 坑坑记">
+<meta property="og:url" content="http://sixpenny.github.io/2018/01/26/Spark-坑坑记/index.html">
 <meta property="og:site_name" content="Dylan">
-<meta property="og:description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
+<meta property="og:description" content="背景​    公司里想做一个分析的业务，数据全都在MySQL里，就想着把数据导入到Kudu中后再做进一步的分析。由于在导数据过中可能会需要etl，而且数据的实时性要求并没有很高，对比了一下spark跟storm觉得spark的微批处理的思想很适合这种情况，于是就愉快的决定了。 上手​    我个人比较学院派，就是学习一个东西喜欢找书看。书里的体系是比较好的，从产生背景、基础知识到进阶知识都会有涉及">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-02T11:09:42.948Z">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516973763448&di=2e779ea15f71013fc8613fe31b7b3c08&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D292990745%2C454782514%26fm%3D214%26gp%3D0.jpg">
+<meta property="og:updated_time" content="2018-01-26T09:57:45.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对stack的定势思维">
-<meta name="twitter:description" content="今天在codewar上做了这样一道题  In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct sy">
+<meta name="twitter:title" content="Spark 坑坑记">
+<meta name="twitter:description" content="背景​    公司里想做一个分析的业务，数据全都在MySQL里，就想着把数据导入到Kudu中后再做进一步的分析。由于在导数据过中可能会需要etl，而且数据的实时性要求并没有很高，对比了一下spark跟storm觉得spark的微批处理的思想很适合这种情况，于是就愉快的决定了。 上手​    我个人比较学院派，就是学习一个东西喜欢找书看。书里的体系是比较好的，从产生背景、基础知识到进阶知识都会有涉及">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516973763448&di=2e779ea15f71013fc8613fe31b7b3c08&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D292990745%2C454782514%26fm%3D214%26gp%3D0.jpg">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +67,7 @@
   };
 </script>
 
-  <title> 对stack的定势思维 | Dylan </title>
+  <title> Spark 坑坑记 | Dylan </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -355,7 +357,7 @@
           
           
             
-              对stack的定势思维
+              Spark 坑坑记
             
           
         </h1>
@@ -364,8 +366,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2018-01-02T18:58:11+08:00" content="2018-01-02">
-            2018-01-02
+          <time itemprop="dateCreated" datetime="2018-01-26T17:51:20+08:00" content="2018-01-26">
+            2018-01-26
           </time>
         </span>
 
@@ -374,8 +376,20 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/思考/" itemprop="url" rel="index">
-                  <span itemprop="name">思考</span>
+                <a href="/categories/java/" itemprop="url" rel="index">
+                  <span itemprop="name">java</span>
+                </a>
+              </span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/java/spark/" itemprop="url" rel="index">
+                  <span itemprop="name">spark</span>
                 </a>
               </span>
 
@@ -390,8 +404,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2018/01/02/对stack的定势思维/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/02/对stack的定势思维/" itemprop="commentsCount"></span>
+            <a href="/2018/01/26/Spark-坑坑记/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/26/Spark-坑坑记/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -405,24 +419,23 @@
       
 
       
-        <span itemprop="articleBody"><p>今天在codewar上做了这样一道题</p>
-<blockquote>
-<p>In English and programming, groups can be made using symbols such as () and {} that change meaning. However, these groups must be closed in the correct order to maintain correct syntax.</p>
-<p>Your job in this kata will be to make a program that checks a string for correct grouping. For instance, the following groups are done correctly:</p>
-<p>({})<br>[<a href=""></a>]<br>[{()}]<br>The next are done incorrectly:</p>
-<p>{(})<br>([]<br>[])</p>
-<p>A correct string cannot close groups in the wrong order, open a group but fail to close it, or close a group before it is opened.</p>
-<p>Your function will take an input string that may contain any of the symbols (), {} or [] to create groups.</p>
-<p>It should return True if the string is empty or otherwise grouped correctly, or False if it is grouped incorrectly.</p>
-</blockquote>
-<p>在我脑海中蹦出来的第一个想法就是使用栈来保存弹出，来判断括号是否匹配</p>
-<a id="more"></a>
-<p>我的程序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Groups</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String left = <span class="string">"&#123;[("</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String right = <span class="string">"&#125;])"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">groupCheck</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (left.contains(String.valueOf(s.charAt(i)))) &#123;</span><br><span class="line">                stack.push(s.charAt(i));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!stack.empty()) &#123;</span><br><span class="line">                Character c = stack.pop();</span><br><span class="line">                <span class="keyword">if</span> (right.indexOf(s.charAt(i)) != left.indexOf(c)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.empty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myTests</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(Groups.groupCheck(<span class="string">"()"</span>), <span class="keyword">true</span>);</span><br><span class="line">        assertEquals(Groups.groupCheck(<span class="string">"(&#123;"</span>), <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>边写边想，写的比较随意。<br>提交之后发现了一个简单至极的方案，完全不需要用栈来实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Groups</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">groupCheck</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      len = s.length();</span><br><span class="line">      s = s.replace(<span class="string">"()"</span>, <span class="string">""</span>);</span><br><span class="line">      s = s.replace(<span class="string">"&#123;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">      s = s.replace(<span class="string">"[]"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">while</span> (len != s.length());</span><br><span class="line">    <span class="keyword">return</span> s.length() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我看到之后想简直太厉害了，几行代码就实现了，还没有那么复杂的判断，关键是纯String操作。<br>优雅！</p>
-<p>我们的头脑遇到问题时会搜索一下有没有现成的解决方案，这在一定程度上减少了我们的脑力浪费，<br>但也有可能让我们丧失了创新的可能。遇事何不先问下自己<code>还有其他的解决方案么？</code></p>
+        <span itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>​    公司里想做一个分析的业务，数据全都在MySQL里，就想着把数据导入到Kudu中后再做进一步的分析。由于在导数据过中可能会需要etl，而且数据的实时性要求并没有很高，对比了一下spark跟storm觉得spark的微批处理的思想很适合这种情况，于是就愉快的决定了。</p>
+<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><p>​    我个人比较学院派，就是学习一个东西喜欢找书看。书里的体系是比较好的，从产生背景、基础知识到进阶知识都会有涉及到，我看的是《Spark in Action》，这本书主要介绍了spark的处理数据流程，spark的rdd(弹性数据集)的各种相关操作，不难，其实就是那些函数式相关的操作，没有接触过函数式语言的只要了解过Java8相关API也可以很快的熟悉起来。看完前两章，对rdd，pairRdd操作比较熟悉了，自己写了demo，本地程序跑的非常愉快。</p>
+<p>​    这本书对API描写的很清楚，用了很大篇幅。不过它的缺点也在于此：没有提供很好的大局观。Spark编程不同于我们平常写的本地程序，这是要在分布式集群里运行的，首先对Spark的作业运行方式没有明确的阐述；其次对于分布式编程与本地编程没有明确，像Context各种类（SparkContext，SparkSession，SQLContext）没有明确定义使用范围，实际上是只能在driver上运行的。</p>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p>​    除了这本实践类型的书，Spark的论文 <a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf" target="_blank" rel="noopener">英文版</a> <a href="http://www.apachecn.org/bigdata/spark/112.html" target="_blank" rel="noopener">中文版</a>是必读的，读完之后可以看下<a href="https://github.com/JerryLead/SparkInternals" target="_blank" rel="noopener">Spark Internals</a> ，对spark的体系架构讲解的很明白。还有一本《spark最佳实践》，我还没怎么看，有兴趣的也可以读读。</p>
+<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>​    Spark估计是我见过的版本最混乱的了，光是版本我就调了好几天，期间遇到各种各样的问题。</p>
+<ol>
+<li>kudu-spark2 没有scala2.10版本的包，如果你要使用kudu-spark2，就必须使用scala2.11,</li>
+<li>spark-streaming-kafka 不论是scala2.10还是2.11，都使用了一个Spark的叫Logging的类，而这个类在Spark1.5.2以后已经移除。可见 <a href="https://stackoverflow.com/questions/40287289/java-lang-noclassdeffounderror-org-apache-spark-logging" target="_blank" rel="noopener">NoClassDefFoundError: org/apache/spark/Logging</a> 讨论</li>
+<li>spark-streaming-kafka 存在对应Kafka版本的0-8和0-10两个包，然而这两个的createStream API签名都不一样，0-8与不带Kafka版本号的包签名一致。</li>
+<li>scala2.10跟2.11是不兼容的，这个需要我们注意，在引用包是都要用同一个scala版本的包</li>
+<li>Spark 2.1.1版本在版本说明上指定使用Scala2.11，对2.10的支持已经deprecated，然而由于2的原因我们实际上不能使用这个版本。</li>
+</ol>
+<p>​    由于以上的各种原因，组合来回，终于可以在Spark 2.1.1版本下本地运行成功了，这里提一下，spark-streaming-kafka-0-8是没有Logging类依赖的，可以使用。然而放到集群上，依然报错，问了一下，集群不支持Scala2.11</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1516973763448&amp;di=2e779ea15f71013fc8613fe31b7b3c08&amp;imgtype=jpg&amp;src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D292990745%2C454782514%26fm%3D214%26gp%3D0.jpg" alt="坑爹呢这是"></p>
+<p>​    没办法只能把Scala换成2.10版本，由于前面已经踩过了n多的坑，这次直接将Spark版本换成1.5.2，对各种构造函数(SQLContext前面版本不支持SparkSession等)以及返回类型(DataSet换成DataFrame等)进行修改，本地启动没有问题，放到集群上顺利运行。</p>
+<p>​    目前还有一个问题就是在使用KuduContext进行更新删除数据时，需要使用SQLContext将List转换成DataFrame，但是前面经过各种转换Rdd已经变成了PairRdd，每个PairRdd对应的是kudu中不同的表，无法转换成单一Rdd。所以使用collect将数据收集起来了，在driver上运行，这是一个很坏的实践，会增大driver机内存爆掉的风险，目前还没有找到好的方法。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>​    错误使人进步，我们也会写服务、工具去给别人使用，在设计的时候尽量避免API的混乱，遵从SOLID原则，给与设计更多的思考。后面会按照自己的理解也写一篇Spark简介，希望能帮到刚入门的各位。</p>
 </span>
       
     </div>
@@ -431,9 +444,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/stack/" rel="tag">#stack</a>
+            <a href="/tags/spark/" rel="tag">#spark</a>
           
-            <a href="/tags/定势思维/" rel="tag">#定势思维</a>
+            <a href="/tags/踩坑/" rel="tag">#踩坑</a>
           
         </div>
       
@@ -442,13 +455,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/09/awk-命令介绍/" rel="prev"></a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/21/Java动态代理与Cglib代理比较/" rel="next">Java动态代理与Cglib代理</a>
+              <a href="/2018/01/09/awk-命令介绍/" rel="next"></a>
             
           </div>
         </div>
@@ -604,7 +615,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上手"><span class="nav-number">2.</span> <span class="nav-text">上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习资源"><span class="nav-number">3.</span> <span class="nav-text">学习资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吐槽"><span class="nav-number">4.</span> <span class="nav-text">吐槽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -667,9 +678,9 @@
 
   <script type="text/javascript">
     var disqus_shortname = 'xxx';
-    var disqus_identifier = '2018/01/02/对stack的定势思维/';
-    var disqus_title = '对stack的定势思维';
-    var disqus_url = 'http://sixpenny.github.io/2018/01/02/对stack的定势思维/';
+    var disqus_identifier = '2018/01/26/Spark-坑坑记/';
+    var disqus_title = 'Spark 坑坑记';
+    var disqus_url = 'http://sixpenny.github.io/2018/01/26/Spark-坑坑记/';
 
     function run_disqus_script(disqus_script){
       var dsq = document.createElement('script');

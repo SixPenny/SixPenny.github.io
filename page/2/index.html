@@ -3509,8 +3509,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/单元测试思考/" itemprop="url">
-                单元测试思考
+              <a class="post-title-link" href="/2017/12/21/Liquibase介绍与使用/" itemprop="url">
+                Liquibase介绍与使用
               </a>
             
           
@@ -3531,8 +3531,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/单元测试思考/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/单元测试思考/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/Liquibase介绍与使用/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Liquibase介绍与使用/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3547,11 +3547,9 @@
 
       
         
-          <p>刚开始工作的时候对单元测试是一种神秘主义，觉得测试很好，但不知道如何开始。团队里也没人去写单元测试，偶尔有个也是写的集成测试，用Spring的test，将所有依赖注入进来，然后<code>System.out.println</code>输出肉眼观测数据是否符合要求，这让我对测试有向往，但是又嫌麻烦，毕竟这样测试写了很多的代码，但是速度上、准确性上都达不到要求。</p>
-<p>就这样一直手动测试了很长时间，也听多了单元测试，自动化测试等等名词，却一直不得其门而入。买过一本单元测试相关的书，看完了，但就是没有开窍。去开发者头条上搜相关测试主题，讲的都是一些思想上的，对我目前的疑惑却没有什么帮助，毕竟我还没有入门。</p>
-<p>后来忘了在哪又看到了单元测试的定义：是对一个模块，一个类或一个函数的正确性做检测的测试工作。突然有点明白了如何来写单元测试，以往一直迷惑这么多依赖该怎么办，覆盖不到全部执行路径怎么办，看到<code>一个函数</code>这四个字我找到了答案：一个函数依赖不会很多，可以使用mock来解决；一个函数的全部执行路径也就那么多，每种情况都考虑到也不会很多；前面说的使用<code>System.out.println</code>肉眼测试，也因为函数只有一个返回值而可以使用<code>Assert</code>类来断言来判断正确性。关键就在于单元，一开始把目光着眼在一个服务类上，依赖十几个服务，几十个外部函数调用，使我望而却步，而把焦点放到函数上，一来可以避免自己写超大的函数，二来依赖少，写单元测试的阻力变小了。</p>
+          <h2 id="Liquibase-简介"><a href="#Liquibase-简介" class="headerlink" title="Liquibase 简介"></a>Liquibase 简介</h2><p>liquibase在其<a href="http://www.liquibase.org/" title="liquibase官网" target="_blank" rel="noopener">官网首页</a>中有一个很明确的定位，<br>那就是Source Control For Your Database，Liquibase记录你的数据库变更，<br>可以在你你迁移时迅速的生成一个与原数据库一致的库出来。还可以与其余数据库做diff，支持多人开发等功能。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/单元测试思考/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/Liquibase介绍与使用/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3584,8 +3582,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/CompletableFuture的使用/" itemprop="url">
-                CompeletableFuture的使用
+              <a class="post-title-link" href="/2017/12/21/AbstractQueuedSynchronizer 源码分析（共享锁）/" itemprop="url">
+                AbstractQueuedSynchronizer 源码分析（共享锁）
               </a>
             
           
@@ -3606,8 +3604,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/CompletableFuture的使用/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/CompletableFuture的使用/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/AbstractQueuedSynchronizer 源码分析（共享锁）/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/AbstractQueuedSynchronizer 源码分析（共享锁）/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3622,9 +3620,13 @@
 
       
         
-          <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>我们就使用Java8 in action里面的商店的例子来说明。<br>我们写了一个应用，这个应用需要通过互联网接口从其他的服务商那里取得价格，<br>由于会有好多个服务商，因此我们先将操作封装到Shop类中。</p>
+          <h1 id="源码看之前的问题"><a href="#源码看之前的问题" class="headerlink" title="源码看之前的问题"></a>源码看之前的问题</h1><ul>
+<li>race condition如何避免？</li>
+<li>工作流程是怎么样的？</li>
+<li>使用什么方式实现的？</li>
+</ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/CompletableFuture的使用/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/AbstractQueuedSynchronizer 源码分析（共享锁）/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3739,6 +3741,80 @@
           
           
             
+              <a class="post-title-link" href="/2017/12/21/Ansible简介及思想/" itemprop="url">
+                Ansible简介及思想
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2017-12-21T18:27:44+08:00" content="2017-12-21">
+            2017-12-21
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2017/12/21/Ansible简介及思想/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/Ansible简介及思想/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="ansible是什么"><a href="#ansible是什么" class="headerlink" title="ansible是什么"></a>ansible是什么</h2><p>如果我们Google一下ansible，第一条出来的就是ansible的官网，它的title是“Ansible is Simple IT Automation”，从这里我们就能了解了ansible的目标：自动化。什么的自动化呢，其实是部署自动化(infrastructure as code)，将你原先一步一步使用命令转变为通过一系列的<code>状态检查</code>来安装一个软件，可以实现批量部署，一键部署。</p>
+<h2 id="为什么用ansible"><a href="#为什么用ansible" class="headerlink" title="为什么用ansible"></a>为什么用ansible</h2><p>ansible有很多的优势，我觉得最重要的就是简单。ansible无需你安装客户端，只需要在一台机器上安装好ansible，配置好ssh，就可以使用了。语法也很简单，使用一系列的task来指定要做的任务，yaml格式提供了很好的缩进，一目了然。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/12/21/Ansible简介及思想/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2017/12/21/卓有成效的管理者/" itemprop="url">
                 卓有成效的管理者
               </a>
@@ -3814,8 +3890,8 @@
           
           
             
-              <a class="post-title-link" href="/2017/12/21/25岁每天做什么对5年之后的你有益/" itemprop="url">
-                25岁每天做什么对5年之后的你有益？
+              <a class="post-title-link" href="/2017/12/21/单元测试思考/" itemprop="url">
+                单元测试思考
               </a>
             
           
@@ -3836,8 +3912,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2017/12/21/25岁每天做什么对5年之后的你有益/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/25岁每天做什么对5年之后的你有益/" itemprop="commentsCount"></span>
+            <a href="/2017/12/21/单元测试思考/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/单元测试思考/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -3852,91 +3928,11 @@
 
       
         
-          <span itemprop="articleBody">
-            
-            
-每天花5分钟跟爸爸妈妈视频，随便聊聊每天的事情，工作，天气，吃的如何，同事同学的八卦。
-每天花至少30分钟锻炼，哪怕只是下楼遛弯。每天专注自己的工作和学习，解决问题，以热情拥抱工作和学习。
-每天收拾好自己的头发，换一身干净衣服再出门。每天认真洗脸，照顾好自己的皮肤。
-学会做饭，不一定每天做，但是至
-            ...
-          </span>
+          <p>刚开始工作的时候对单元测试是一种神秘主义，觉得测试很好，但不知道如何开始。团队里也没人去写单元测试，偶尔有个也是写的集成测试，用Spring的test，将所有依赖注入进来，然后<code>System.out.println</code>输出肉眼观测数据是否符合要求，这让我对测试有向往，但是又嫌麻烦，毕竟这样测试写了很多的代码，但是速度上、准确性上都达不到要求。</p>
+<p>就这样一直手动测试了很长时间，也听多了单元测试，自动化测试等等名词，却一直不得其门而入。买过一本单元测试相关的书，看完了，但就是没有开窍。去开发者头条上搜相关测试主题，讲的都是一些思想上的，对我目前的疑惑却没有什么帮助，毕竟我还没有入门。</p>
+<p>后来忘了在哪又看到了单元测试的定义：是对一个模块，一个类或一个函数的正确性做检测的测试工作。突然有点明白了如何来写单元测试，以往一直迷惑这么多依赖该怎么办，覆盖不到全部执行路径怎么办，看到<code>一个函数</code>这四个字我找到了答案：一个函数依赖不会很多，可以使用mock来解决；一个函数的全部执行路径也就那么多，每种情况都考虑到也不会很多；前面说的使用<code>System.out.println</code>肉眼测试，也因为函数只有一个返回值而可以使用<code>Assert</code>类来断言来判断正确性。关键就在于单元，一开始把目光着眼在一个服务类上，依赖十几个服务，几十个外部函数调用，使我望而却步，而把焦点放到函数上，一来可以避免自己写超大的函数，二来依赖少，写单元测试的阻力变小了。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/25岁每天做什么对5年之后的你有益/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2017/12/21/使用Optional来减少null检查/" itemprop="url">
-                使用Optional来减少null检查
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2017-12-21T17:57:44+08:00" content="2017-12-21">
-            2017-12-21
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2017/12/21/使用Optional来减少null检查/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/使用Optional来减少null检查/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>平常我们使用null检查在项目中简直太常见了，从数据库中查询到的数据可能不存在返回null，service中处理中发现不存在返回一个null，在互相调用的时候每次都需要做<code>(if obj != null)</code>的判断，散落在程序中很难看。更难看的是当你遗漏了一个空指针判断，程序就会无情的给你抛出一个NPE让你知道谁才是老大。</p>
-<p>假设我们有一个用户类User，用户可以有收货地址类Addr，收货地址中肯定会有省province属性啦，如果我们要获取用户的收货省，简单的来一个链式操作<code>user.getAddr().getProvince()</code>,这样操作可以么?</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/12/21/使用Optional来减少null检查/#more" rel="contents">
+            <a class="btn" href="/2017/12/21/单元测试思考/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -3962,7 +3958,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
  </div>
@@ -3994,14 +3990,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
